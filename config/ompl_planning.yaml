@@ -139,6 +139,10 @@ planner_configs:
     type: geometric::RRTGoalRegion
     range: 0.0  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
     goal_bias: 0.1  # When close to goal select goal, with this probability? default: 0.05
+  RRTHybridGoalRegionkConfigDefault:
+    type: geometric::RRTHybridGoalRegion
+    range: 0.0  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
+    goal_bias: 0.1  # When close to goal select goal, with this probability? default: 0.05
   RRTAdaptiveGoalRegionkConfigDefault:
     type: geometric::RRTAdaptiveGoalRegion
     range: 0.0  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
@@ -173,6 +177,8 @@ $(arg arm_id)_arm: &arm_config
     - RRTGoalRegConskConfigDefault
     - RRTGoalRegionkConfigDefault
     - RRTAdaptiveGoalRegionkConfigDefault
+    - RRTHybridGoalRegionkConfigDefault
+
   projection_evaluator: joints($(arg arm_id)_joint1,$(arg arm_id)_joint2)
   longest_valid_segment_fraction: 0.005
 $(arg arm_id)_manipulator: *arm_config
@@ -206,4 +212,5 @@ $(arg arm_id)_hand:
     - RRTGoalRegConskConfigDefault
     - RRTGoalRegionkConfigDefault
     - RRTAdaptiveGoalRegionkConfigDefault
+    - RRTHybridGoalRegionkConfigDefault
 
