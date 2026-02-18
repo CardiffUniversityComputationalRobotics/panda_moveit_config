@@ -149,6 +149,16 @@ planner_configs:
     range: 0.0  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
     goal_bias: 0.5  # When close to goal select goal, with this probability? default: 0.05
 
+  RRTTransformerWGRkConfigDefault:
+    type: geometric::RRTTransformerWGR
+    range: 0.0  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
+    goal_bias: 0.5  # When close to goal select goal, with this probability? default: 0.05
+
+  RRTDiffusionWGRkConfigDefault:
+    type: geometric::RRTDiffusionWGR
+    range: 0.0  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
+    goal_bias: 0.5  # When close to goal select goal, with this probability? default: 0.05
+
   RRTHybridGoalRegionkConfigDefault05:
     type: geometric::RRTHybridGoalRegion
     range: 0.0  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
@@ -195,6 +205,8 @@ $(arg arm_id)_arm: &arm_config
     - RRTAdaptiveGoalRegionkConfigDefault
     - RRTHybridGoalRegionkConfigDefault
     - RRTHybridWGRkConfigDefault
+    - RRTTransformerWGRkConfigDefault
+    - RRTDiffusionWGRkConfigDefault
     - RRTHybridGoalRegionkConfigDefault05
     - RRTHybridGoalRegionkConfigDefault10
 
@@ -233,6 +245,8 @@ $(arg arm_id)_hand:
     - RRTAdaptiveGoalRegionkConfigDefault
     - RRTHybridGoalRegionkConfigDefault
     - RRTHybridWGRkConfigDefault
+    - RRTTransformerWGRkConfigDefault
+    - RRTDiffusionWGRkConfigDefault
     - RRTHybridGoalRegionkConfigDefault05
     - RRTHybridGoalRegionkConfigDefault10
 
